@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,8 @@ use App\Http\Controllers\MessageController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/scoreupdate', [ScoreController::class, 'scoreupdate']);
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-// Route::post('/message', 'MessageController@broadcast');
-Route::post('/message', [MessageController::class, 'broadcast']);
